@@ -1,0 +1,15 @@
+public class FirstLastDigitSum {
+ public static int sumFirstAndLastDigit(int number){
+     if(number>=0){int count=0;
+    int fst=number%10;
+         for(int temp=number;temp>0;temp/=10)
+         count++;
+         int temp=number;
+         for(;count>1;temp/=10,count--);
+         
+         return fst+temp;
+         
+     }
+     else return -1;
+ }
+}

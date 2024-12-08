@@ -1,0 +1,16 @@
+ public class GreatestCommonDivisor {
+     public static int getGreatestCommonDivisor(int first,int second){int temp=1;
+     int num=0;
+         if(first<10||second<10)
+         return -1;
+         
+         else {   int loop=(first>second)?second:first;
+             for (;temp<=loop;temp++)
+             if((first%temp==0&&second%temp==0)&&(temp!=1))num=temp ;
+             
+            return num;
+              
+         }
+         
+     }
+}

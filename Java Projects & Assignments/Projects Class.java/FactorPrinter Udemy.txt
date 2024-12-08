@@ -1,0 +1,12 @@
+public class FactorPrinter {
+public static void printFactors(int number){
+    if(number>=1){
+        for(int a=1;a<=number ;a++)
+        if(number%a==0)
+         System.out.println(a);
+        
+    }
+    else System.out.println("Invalid Value");
+    
+}
+}

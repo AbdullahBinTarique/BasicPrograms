@@ -1,0 +1,17 @@
+public class PerfectNumber {
+    public static boolean isPerfectNumber(int number){int sum=0;
+        if(number<1)
+        return false;
+        else{
+            for(int a=1;a<number;a++)
+            if(number%a==0)
+            sum+=a;
+            if(sum==number)
+            return true;
+            else return false;
+            
+            
+        }
+        
+    }
+}

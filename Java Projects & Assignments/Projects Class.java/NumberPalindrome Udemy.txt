@@ -1,0 +1,25 @@
+public class NumberPalindrome {
+ public static boolean isPalindrome(int number){
+    //  if(number>0)
+    //  {
+         int temp;temp=number;int rev=0;
+     for( ;temp!=0;)
+     {
+         rev=rev*10+temp%10;temp/=10;
+     }
+     if(rev==number)
+     return true;
+     else return false;
+    //  }
+    //  else{
+    //      int temp;temp=number;int rev=0;
+    //  for( ;temp<0;)
+    //  {
+    //      rev=rev*10+temp%10;temp/=10;
+    //  }
+    //  if(rev==number)
+    //  return true;
+    //  else return false;
+    //  }
+ }
+}

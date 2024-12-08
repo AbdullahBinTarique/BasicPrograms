@@ -1,0 +1,457 @@
+1..Factorial program??????--------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int n = scanner.nextInt();
+        scanner.close();
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            int factorial = 1;
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+            System.out.println("The factorial of " + n + " is " + factorial);
+        }
+    }
+}
+
+
+
+2..grade calculator??-------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the test score (0-100): ");
+        int score = scanner.nextInt();
+        scanner.close();
+
+        if (score < 0 || score > 100) {
+            System.out.println("Invalid input. Test score must be between 0 and 100.");
+        } else if (score >= 0 && score <= 60) {
+            System.out.println("Grade: F");
+        } else if (score >= 61 && score <= 70) {
+            System.out.println("Grade: D");
+        } else if (score >= 71 && score <= 80) {
+            System.out.println("Grade: C");
+        } else if (score >= 81 && score <= 90) {
+            System.out.println("Grade: B");
+        } else {
+            System.out.println("Grade: A");
+        }
+    }
+}
+
+
+3..bank account???---------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+class Details {
+    String name;
+    int accountNumber; // Replaced UUID with an integer counter
+    String typeOfAccount;
+    double balance = 0;
+}
+
+public class BankDetails {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int accountCounter = 1; // Initialize the account number counter
+
+        int a;
+        do {
+            Details obj = new Details();
+            obj.accountNumber = accountCounter; // Set the account number using the counter
+
+            System.out.println("Menu:");
+            System.out.println("1. Deposit an amount");
+            System.out.println("2. Withdraw an amount");
+            System.out.println("3. Check balance");
+            System.out.println("4. Display the name and balance");
+            System.out.println("5. Enter name");
+
+            System.out.print("Enter operation you want to perform: ");
+            int n = scanner.nextInt();
+
+            switch (n) {
+                case 1:
+                    System.out.print("Enter amount: ");
+                    double amount = scanner.nextDouble();
+                    obj.balance += amount;
+                    break;
+
+                case 2:
+                    System.out.print("Withdraw amount: ");
+                    double withdraw = scanner.nextDouble();
+                    if (withdraw > obj.balance) {
+                        System.out.println("Insufficient balance.");
+                    } else {
+                        obj.balance -= withdraw;
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Your current balance is: " + obj.balance);
+                    break;
+
+                case 4:
+                    System.out.println("Name: " + obj.name);
+                    System.out.println("Your current balance is: " + obj.balance);
+                    System.out.println("Your account number is: " + obj.accountNumber);
+                    break;
+
+                case 5:
+                    System.out.print("Enter your name: ");
+                    obj.name = scanner.next();
+                    break;
+
+                default:
+                    System.out.println("Invalid input.");
+                    break;
+            }
+
+            System.out.print("Do you want to continue (N=0 and Y=1): ");
+            a = scanner.nextInt();
+
+            accountCounter++; // Increment the account number counter for the next account
+        } while (a == 1);
+
+        scanner.close();
+    }
+}
+
+
+3..b...employee details------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+class Employee {
+    String name;
+    int age;
+    double phoneNumber;
+    int basicSalary;
+    int days;
+    int allowances;
+    int hra;
+}
+
+public class employeedetails {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter the number of employees: ");
+        int n = input.nextInt();
+        input.nextLine(); 
+
+        Employee[] records = new Employee[n];
+
+        for (int i = 0; i < n; i++) {
+            Employee record = new Employee();
+            System.out.println("Enter details of employee " + (i + 1) + ":");
+
+            System.out.print("Enter your name: ");
+            record.name = input.nextLine();
+
+            System.out.print("Enter your age: ");
+            record.age = input.nextInt();
+            input.nextLine(); 
+
+            System.out.print("Enter your phone number: ");
+            record.phoneNumber = input.nextDouble();
+            input.nextLine(); 
+
+            System.out.print("Enter your basic salary: ");
+            record.basicSalary = input.nextInt();
+            input.nextLine(); 
+
+            System.out.print("Enter your HRA: ");
+            record.hra = input.nextInt();
+            input.nextLine(); 
+
+            System.out.print("Enter allowances: ");
+            record.allowances = input.nextInt();
+            input.nextLine(); 
+
+            System.out.print("Enter your days: ");
+            record.days = input.nextInt();
+            input.nextLine(); 
+
+            System.out.println();
+            records[i] = record;
+        }
+        System.out.println("Employee Records: \n");
+        System.out.println("Name \t" + "Age \t" + "Phone Number \t" + "Days \t" + "Gross Salary \t");
+        
+        for (int i = 0; i < n; i++) {
+            System.out.print(records[i].name + "\t");
+            System.out.print(records[i].age + "\t");
+            System.out.print(records[i].phoneNumber + "\t");
+            System.out.print(records[i].days + "\t");
+            System.out.print(records[i].basicSalary+records[i].allowances+records[i].hra + "\n");
+        }
+    }
+}
+
+4..constructor overloading---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Area {
+    double res;
+    Area() {.
+    }
+    Area(double side) {
+        res = side * side;
+    }
+    Area(double radius, double pi) {
+        res = pi * radius * radius;
+    }
+    void display() {
+        System.out.println(res);
+    }
+}
+public class Shape {
+    public static void main(String[] args) {
+        System.out.println("Area of square is");
+        Area ob1 = new Area(6);
+        ob1.display();
+        System.out.println("Area of circle is");
+        Area ob2 = new Area(7, 3.14);
+        ob2.display();
+    }
+}
+
+
+5..String occurence-------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class StringCharacterCount {
+
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        System.out.print("Enter a word: ");
+        String name = obj.next();
+        int[] word = new int[26];
+
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                word[ch - 'a']++;
+            }
+        }
+
+        for (char a = 'a'; a <= 'z'; a++) {
+            int count = word[a - 'a'];
+            if (count > 0) {
+                System.out.println("The number of occurrences of '" + a + "' is: " + count);
+            }
+        }
+    }
+}
+
+
+6..Reverse a string using buffer class------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+class Reverse
+{
+    public static void main(String[ ] arg)
+    {
+    String str;
+    Scanner scan=new Scanner(System.in);
+    System.out.print("Enter a string : ");
+    str=scan.nextLine();    
+    char[] ch=str.toCharArray(); 
+    System.out.println("Reverse of a String is :"); 
+    int j=ch.length;
+    for(int i=j;i>0;i--)
+    {
+    System.out.print(ch[i-1]); 
+    }
+    }
+}
+
+
+7..rollno sem sem 2 inheritance-----------------------------------------------------------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+abstract class student
+{
+    int rollno;
+    String name;
+    void getdata()
+    {
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter Name:");
+    name=sc.next();
+    System.out.println("Enter Roll No:");
+    rollno=sc.nextInt();
+    }
+    abstract void display();
+}
+class test extends student{
+  int sem1m;
+  int sem2m;
+  void getscores(){
+      Scanner sc=new Scanner(System.in);
+  System.out.println("Enter Sem 1 Marks:");
+  sem1m=sc.nextInt();
+  System.out.println("Enter Sem 2 Marks:");
+  sem2m=sc.nextInt();
+  }
+  void display(){
+      System.out.println("Student details are:");
+      System.out.println("Name:" +name);
+      System.out.println("Roll No:" +rollno);
+      System.out.println("Sem 1 scores:" +sem1m);
+      System.out.println("Sem 2 scores:" +sem2m);
+
+}
+}
+
+interface sports{
+     void getsportsscore();
+}   
+
+class result extends test implements sports{
+    int sportsscore;
+    public void getsportsscore(){
+        Scanner sc=new Scanner(System.in);
+    System.out.println("Enter Sports Score:");
+    sportsscore=sc.nextInt();   
+    }
+
+    void display(){
+      System.out.println("Student details are");
+      System.out.println("Name:" +name);
+      System.out.println("Roll No:" +rollno);
+      System.out.println("Sem 1 scores:" +sem1m);
+      System.out.println("Sem 2 scores:" +sem2m);
+      System.out.println("Sportsscore:" +sportsscore);
+      System.out.println("Total:" +(sem1m+sem2m+sportsscore));
+    }
+
+}
+
+class output{
+    public static void main(String args[]){
+        result ob=new result();
+        ob.getdata();
+        ob.getscores();
+        ob.getsportsscore();
+        ob.display();
+    }
+}
+
+
+8..abstract class area------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner; abstract class Shape{
+    double a,b;
+    Shape(double a,double b){ this.a=a;
+    this.b=b;
+    }
+    abstract void area();
+    }
+    class Rectangle extends Shape{ Rectangle(double a,double b){
+    super(a, b);
+    }
+    void area(){
+    System.out.println("Area of Rectangle "+(a*b));
+    }
+    }
+    class Triangle extends Shape{ Triangle(double a, double b){
+    super(a, b);
+}
+void area(){
+System.out.println("Area of Triangle "+(.5*a*b));
+}
+}
+public class Abstract1 {
+public static void main(String[] args) { Scanner s=new Scanner(System.in); Shape sh;
+System.out.println("Enter \n1 for rectangle \n2 for triangle"); int c=s.nextInt();
+if(c==1){
+System.out.println("Enter rectangle length and breadth"); double a=s.nextDouble(),b=s.nextDouble();
+Rectangle r=new Rectangle(a, b); sh=r;
+sh.area();
+}
+else if(c==2)
+{
+System.out.println("Enter triangle base and height"); double a=s.nextDouble(),b=s.nextDouble();
+Triangle t=new Triangle(a,b); sh=t;
+sh.area();
+}
+s.close();
+}
+}
+    
+
+9..ex ception handling-----------------------------------------------------------------------------------------------------------------------------------
+
+import java.io.IOException;
+
+class excep {
+    public static void main(String[] args) {
+        try {
+            System.out.println(2 / 0);
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException: " + e.getMessage());
+        }
+        try {
+            int a[] = new int[2];
+            a[0] = 5;
+            a[1] = 6;
+            System.out.println(a[3]); // 
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException: " + e.getMessage());
+        }
+        try {
+            throw new IOException("This is an IOException"); 
+        } catch (IOException e) {
+            System.out.println("IOException: " + e.getMessage());
+        }
+
+        finally {
+            System.out.println("Hello!!!");
+        }
+    }
+
+
+10..NoMatchException--------------------------------------------------------------------------------------------------------------------------------------
+
+class NoMatchException extends Exception {
+    public NoMatchException() {
+        super("String does not match 'India'");
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            String inputString = "USA"; // Replace with your input string
+
+            if (!inputString.equals("India")) {
+                throw new NoMatchException();
+            }
+
+            // If the string matches "India," continue with the program logic.
+            System.out.println("The string matches 'India.'");
+        } catch (NoMatchException e) {
+            System.err.println("Error: " + e.getMessage());
+            // You can add additional error handling logic here.
+        }
+    }
+}
+
+
+
+
+

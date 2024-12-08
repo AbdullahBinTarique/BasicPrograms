@@ -1,0 +1,13 @@
+public class EvenDigitSum {
+    public static int getEvenDigitSum(int number){
+        if(number>=0){int sum=0;int count=0;
+        for( int temp=number;temp!=0;temp/=10,count++);
+        for( ;count>0;count--,number/=10)
+        {
+            if((number%10)%2==0)
+            sum+=number%10;
+        }
+        return sum;
+        }
+        else return -1;    }
+}

@@ -1,0 +1,15 @@
+public class SharedDigit {
+    public static boolean hasSharedDigit(int a,int b){
+        if(!((a>=10&&a<=99)&&(b>=10&&b<=99)))
+        {
+         return false;
+        }
+        else 
+         for(int a1=a;a1>0;a1/=10)
+         for(int b1=b;b1>0;b1/=10)
+         
+            if(a1%10==b1%10)
+            return true;
+            return false;
+    }     
+}
